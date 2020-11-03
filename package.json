@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@bit/grommet.grommet.grid": "^2.11.1",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -13,12 +15,14 @@
     "grommet": "^2.15.2",
     "grommet-icons": "^4.5.0",
     "react": "^17.0.1",
+    "react-awesome-lightbox": "^1.7.3",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
     "react-grid": "^4.0.4",
     "react-hook-form": "^6.10.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "recharts": "^1.8.5",
     "submit": "^2.0.0",
     "web-vitals": "^0.2.4"
   },
