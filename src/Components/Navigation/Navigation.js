@@ -8,31 +8,23 @@ import MainApp from '../MainApp/MainApp'
 
 export const Navigation = () => {
 
-
+  
 
     return (
-        <div>  <Router>
-            <Navbar bg="primary" variant="dark">
-          
-            <NavLink to = "/" exact strict activeStyle={{color:'black'} }>Login</NavLink>
-            <NavLink to = "/register" exact activeStyle={{color:'black'} }>Register</NavLink>
-         
-            </Navbar>
+        <div>  
+            <Router>
+                <Navbar bg="primary" variant="dark">
+                    <NavLink to = "/" exact strict activeStyle={{color:'black'} }>Login</NavLink>
+                    <NavLink to = "/register" exact activeStyle={{color:'black'} }>Register</NavLink>
+                </Navbar>
 
 
-          
-            <Route path="/" exact strict component = {Login}/>
-
-            <Route path="/register" exact strict render = {()=>{
-            return (<h1>Registration Page</h1>)
-                }
-            }/>
-
-            <Route path="/main" exact strict component = {MainApp}/> 
-
-
-
-            
+                <Route path="/" exact strict component = {Login}/>
+        
+                <Route path="/register" exact strict render = {()=>{
+                return (<h1>Registration Page</h1>)
+                    }
+                }/>
             </Router>
             
         </div>

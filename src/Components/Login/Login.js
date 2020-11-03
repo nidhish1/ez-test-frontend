@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { useForm } from 'react-hook-form'
 import { Redirect, Route } from 'react-router-dom';
 
-import MainApp from './MainApp'
+import MainApp from '../MainApp/MainApp'
 
 
 
@@ -12,14 +12,16 @@ export const Login = () => {
 
    const {register, handleSubmit} = useForm()
    const [accessToken,setaccessToken] = useState('logout')
+   
  
    const logout =()=>{
     setaccessToken('logout')
+    localStorage.setItem('token','logout');
+    console.log(localStorage.getItem('token'))
    }
 
 
-    const onSubmit = (data) => {
-        
+    const onSubmit = (data) => {    
         fetch(process.env.REACT_APP_LOGIN_URL, {  // add to env
             method: 'POST',
             headers: {
@@ -30,10 +32,14 @@ export const Login = () => {
 
         })
             .then(r =>(r.json()))
-            .then(res =>setaccessToken(res.access_token))    
+            .then(res => {
+                localStorage.setItem('token',JSON.stringify(res));
+                setaccessToken(res)
+                localStorage.getItem('token')
+            }) ;        
     };
 
-    if (accessToken === 'logout' || accessToken == null) {
+    if (localStorage.getItem('token') === 'logout' || localStorage.getItem('token') == null) {
         return ( <div>
 
             <Container>
@@ -52,7 +58,7 @@ export const Login = () => {
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
-
+                {setaccessToken}
                 </Col>
                 <Col></Col>
             </Row>
@@ -61,7 +67,7 @@ export const Login = () => {
            
         </div>)
     }else {
-        return (<MainApp />) 
+        return (<MainApp accessToken = {accessToken.access_token} logout = {logout}/>) 
     }
    
 
