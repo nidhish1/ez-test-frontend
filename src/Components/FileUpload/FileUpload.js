@@ -13,6 +13,7 @@ class FileUpload extends Component {
     this.fileReader.onload = event => {
       this.setState({ jsonFile: JSON.parse(event.target.result) }, () => {
         console.log(this.state.jsonFile);
+        this.props.getJson(this.state.jsonFile)
       });
     };
   }

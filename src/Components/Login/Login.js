@@ -17,7 +17,9 @@ export const Login = () => {
    const logout =()=>{
     setaccessToken('logout')
     localStorage.setItem('token','logout');
+
     console.log(localStorage.getItem('token'))
+    window.location.reload();
    }
 
 
