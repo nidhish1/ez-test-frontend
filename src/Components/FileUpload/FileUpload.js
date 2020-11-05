@@ -1,6 +1,7 @@
 
 import React, { Component } from "react";
 import Files from "react-files";
+import {Button} from 'react-bootstrap'
 
 class FileUpload extends Component {
   constructor() {
@@ -12,7 +13,6 @@ class FileUpload extends Component {
     this.fileReader = new FileReader();
     this.fileReader.onload = event => {
       this.setState({ jsonFile: JSON.parse(event.target.result) }, () => {
-        console.log(this.state.jsonFile);
         this.props.getJson(this.state.jsonFile)
       });
     };
@@ -20,7 +20,7 @@ class FileUpload extends Component {
 
   render() {
     return (
-        <button>
+      <Button >
       <div className="files">
         <Files
           className="files-dropzone"
@@ -35,10 +35,10 @@ class FileUpload extends Component {
           minFileSize={0}
           clickable
         >
-          Upload Json
+          Open json
         </Files>
       </div>
-      </button>
+      </Button>
     );
   }
 }
